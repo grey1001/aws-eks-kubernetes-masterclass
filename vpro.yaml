@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: vproapp-rs
+  labels:
+    app: vproapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vproapp
+  template:
+    metadata:
+      labels:
+        app: vproapp
+    spec:
+      containers:
+      - name: vproapp-app
+        image: greyabiwon/vprofileapp
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: vproapp-svc-lb
+spec:
+  selector:
+    app: vproapp
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+   

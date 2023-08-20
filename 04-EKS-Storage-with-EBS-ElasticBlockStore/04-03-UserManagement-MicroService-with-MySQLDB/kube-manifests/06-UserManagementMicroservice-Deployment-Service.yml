@@ -1,32 +1,38 @@
 apiVersion: apps/v1
-kind: Deployment 
+kind: Deployment
 metadata:
-  name: usermgmt-microservice
+  name:  usermgmt-microservice
+  namespace: default
   labels:
-    app: usermgmt-restapp
+    app:  usermgmt-microservice
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: usermgmt-restapp
-  template:  
+      app: usermgmt-microservice
+  replicas: 1
+  template:
     metadata:
-      labels: 
-        app: usermgmt-restapp
+      labels:
+        app:  usermgmt-microservice
     spec:
+      # initContainers:
+        # Init containers are exactly like regular containers, except:
+          # - Init containers always run to completion.
+          # - Each init container must complete successfully before the next one starts.
       containers:
-        - name: usermgmt-restapp
-          image: stacksimplify/kube-usermanagement-microservice:1.0.0
-          ports: 
-            - containerPort: 8095           
-          env:
-            - name: DB_HOSTNAME
-              value: "mysql"            
-            - name: DB_PORT
-              value: "3306"            
-            - name: DB_NAME
-              value: "usermgmt"            
-            - name: DB_USERNAME
-              value: "root"            
-            - name: DB_PASSWORD
-              value: "dbpassword11"            
+      - name:  usermgmt-microservice
+        image: stacksimplify/kube-usermanagement-microservice:1.0.0
+        ports:
+          - containerPort: 8095 
+        env:
+        - name: DB_HOSTNAME
+          value: "mysql"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_HOST
+          value: "usermgt"
+        - name: DB_USERNAME
+          value: "root"
+        - name: DB_PASSWORD
+          value: "dbpassword11"
+      restartPolicy: Always
