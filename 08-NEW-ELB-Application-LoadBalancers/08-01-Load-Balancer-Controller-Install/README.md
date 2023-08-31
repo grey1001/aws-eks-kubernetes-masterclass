@@ -185,7 +185,7 @@ eksctl create iamserviceaccount \
   --cluster=eksdemo1 \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
-  --attach-policy-arn=arn:aws:iam::180789647333:policy/AWSLoadBalancerControllerIAMPolicy \
+  --attach-policy-arn=arn:aws:iam::929252397181:policy/AWSLoadBalancerControllerIAMPolicy \
   --override-existing-serviceaccounts \
   --approve
 ```
@@ -310,9 +310,9 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set clusterName=eksdemo1 \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
-  --set region=us-east-1 \
-  --set vpcId=vpc-0165a396e41e292a3 \
-  --set image.repository=602401143452.dkr.ecr.us-east-1.amazonaws.com/amazon/aws-load-balancer-controller
+  --set region=eu-west-3 \
+  --set vpcId=vpc-0f2438d64a4ebd935 \
+  --set image.repository=602401143452.dkr.ecr.eu-west-3.amazonaws.com/amazon/aws-load-balancer-controller
 ```
 - **Sample output for AWS Load Balancer Controller Install steps**
 ```t

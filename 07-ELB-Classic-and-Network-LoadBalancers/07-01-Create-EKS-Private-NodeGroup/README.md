@@ -21,14 +21,14 @@ eksctl delete nodegroup eksdemo1-ng-public1 --cluster eksdemo1
 
 ```
 eksctl create nodegroup --cluster=eksdemo1 \
-                        --region=us-east-1 \
+                        --region=eu-west-3 \
                         --name=eksdemo1-ng-private1 \
                         --node-type=t3.medium \
                         --nodes-min=2 \
                         --nodes-max=4 \
                         --node-volume-size=20 \
                         --ssh-access \
-                        --ssh-public-key=kube-demo \
+                        --ssh-public-key=demo \
                         --managed \
                         --asg-access \
                         --external-dns-access \
