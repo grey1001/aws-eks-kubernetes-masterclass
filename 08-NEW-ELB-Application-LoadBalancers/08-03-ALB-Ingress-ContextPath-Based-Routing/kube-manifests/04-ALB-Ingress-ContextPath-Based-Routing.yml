@@ -7,7 +7,7 @@ metadata:
     # Load Balancer Name
     alb.ingress.kubernetes.io/load-balancer-name: cpr-ingress
     # Ingress Core Settings
-    #kubernetes.io/ingress.class: "alb" (OLD INGRESS CLASS NOTATION - STILL WORKS BUT RECOMMENDED TO USE IngressClass Resource)
+    #kubernetes.io/ingress.class: "alb" #(OLD INGRESS CLASS NOTATION - STILL WORKS BUT RECOMMENDED TO USE IngressClass Resource)
     alb.ingress.kubernetes.io/scheme: internet-facing
     # Health Check Settings
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP 
@@ -18,6 +18,8 @@ metadata:
     alb.ingress.kubernetes.io/success-codes: '200'
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'   
+    #alb.ingress.kubernetes.io/subnets: subnet-0ece2807f08a9f550,subnet-04f063fe66b290857
+    #alb.ingress.kubernetes.io/vpc: 'vpc-065ae2ce46323e93a'
 spec:
   ingressClassName: my-aws-ingress-class   # Ingress Class                       
   rules:

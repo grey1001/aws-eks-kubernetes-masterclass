@@ -304,14 +304,14 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   --set vpcId=<vpc-xxxxxxxx> \
   --set image.repository=<account>.dkr.ecr.<region-code>.amazonaws.com/amazon/aws-load-balancer-controller
 
-## Replace Cluster Name, Region Code, VPC ID, Image Repo Account ID and Region Code  
+## Replace Cluster Name, Region Code, VPC ID, Image Repo Account ID and Region Code 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
   --set clusterName=eksdemo1 \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=eu-west-3 \
-  --set vpcId=vpc-0f2438d64a4ebd935 \
+  --set vpcId=XXXXXXXXXXXXXX \
   --set image.repository=602401143452.dkr.ecr.eu-west-3.amazonaws.com/amazon/aws-load-balancer-controller
 ```
 - **Sample output for AWS Load Balancer Controller Install steps**
