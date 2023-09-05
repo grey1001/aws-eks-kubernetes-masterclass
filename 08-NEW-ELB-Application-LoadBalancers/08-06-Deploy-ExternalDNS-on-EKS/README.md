@@ -48,7 +48,7 @@ description: Learn AWS Load Balancer Controller - External DNS Install
 - Make a note of Policy ARN which we will use in next step
 ```t
 # Policy ARN
-arn:aws:iam::180789647333:policy/AllowExternalDNSUpdates
+arn:aws:iam::929252397181:policy/AllowExternalDNSUpdates
 ```  
 
 
@@ -71,7 +71,7 @@ eksctl create iamserviceaccount \
     --name external-dns \
     --namespace default \
     --cluster eksdemo1 \
-    --attach-policy-arn arn:aws:iam::180789647333:policy/AllowExternalDNSUpdates \
+    --attach-policy-arn arn:aws:iam::929252397181:policy/AllowExternalDNSUpdates \
     --approve \
     --override-existing-serviceaccounts
 ```
