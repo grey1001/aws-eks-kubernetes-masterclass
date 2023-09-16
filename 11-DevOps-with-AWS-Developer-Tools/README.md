@@ -100,6 +100,8 @@ echo $TRUST
 # Create IAM Role for CodeBuild to Interact with EKS
 aws iam create-role --role-name EksCodeBuildKubectlRole --assume-role-policy-document "$TRUST" --output text --query 'Role.Arn'
 
+#arn:aws:iam::929252397181:role/EksCodeBuildKubectlRole
+
 # Define Inline Policy with eks Describe permission in a file iam-eks-describe-policy
 echo '{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "eks:Describe*", "Resource": "*" } ] }' > /tmp/iam-eks-describe-policy
 
@@ -197,7 +199,7 @@ https://docs.aws.amazon.com/powershell/latest/reference/items/Write-IAMRolePolic
 kubectl get configmap aws-auth -o yaml -n kube-system
 
 # Export your Account ID
-export ACCOUNT_ID=180789647333
+export ACCOUNT_ID=929252397181
 
 # Set ROLE value
 ROLE="    - rolearn: arn:aws:iam::$ACCOUNT_ID:role/EksCodeBuildKubectlRole\n      username: build\n      groups:\n        - system:masters"
@@ -255,8 +257,8 @@ Save the file.
 
 ### Environment Variables for CodeBuild
 ```
-REPOSITORY_URI = 180789647333.dkr.ecr.us-east-1.amazonaws.com/eks-devops-nginx
-EKS_KUBECTL_ROLE_ARN = arn:aws:iam::180789647333:role/EksCodeBuildKubectlRole
+REPOSITORY_URI = 929252397181.dkr.ecr.eu-west-3.amazonaws.com/grey
+EKS_KUBECTL_ROLE_ARN = arn:aws:iam::929252397181:role/EksCodeBuildKubectlRole
 EKS_CLUSTER_NAME = eksdemo1
 ```
 

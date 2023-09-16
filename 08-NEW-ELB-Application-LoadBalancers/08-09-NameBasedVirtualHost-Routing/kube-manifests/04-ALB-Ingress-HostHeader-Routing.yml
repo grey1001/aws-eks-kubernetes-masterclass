@@ -20,12 +20,12 @@ metadata:
     alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'   
     ## SSL Settings
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-3:929252397181:certificate/7d6c1aed-8d39-4863-b544-33897b3960d8
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:eu-west-3:929252397181:certificate/7d6c1aed-8d39-4863-b544-33897b3960d8 
     #alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-1-2017-01 #Optional (Picks default if not used)    
     # SSL Redirect Setting
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     # External DNS - For creating a Record Set in Route53
-    external-dns.alpha.kubernetes.io/hostname: default101.stacksimplify.com 
+    external-dns.alpha.kubernetes.io/hostname: default101.greyabiwon.co
 spec:
   ingressClassName: my-aws-ingress-class   # Ingress Class                  
   defaultBackend:
@@ -34,7 +34,7 @@ spec:
       port:
         number: 80     
   rules:
-    - host: app101.stacksimplify.com
+    - host: app101.greyabiwon.co
       http:
         paths:
           - path: /
@@ -44,7 +44,7 @@ spec:
                 name: app1-nginx-nodeport-service
                 port: 
                   number: 80
-    - host: app201.stacksimplify.com
+    - host: app201.greyabiwon.co
       http:
         paths:                  
           - path: /
