@@ -85,6 +85,10 @@ kubectl apply -f kube-manifests/01-MySQL-externalName-Service.yml
 ## Step-04:  Connect to RDS Database using kubectl and create usermgmt schema/db
 ```
 kubectl run -it --rm --image=mysql:5.7.22 --restart=Never mysql-client -- mysql -h usermgmtdb.c7hldelt9xfp.us-east-1.rds.amazonaws.com -u dbadmin -pdbpassword11
+kubectl run -it --rm --image=mysql:5.7 --restart=Never mysql-client -- mysql -h usermgmtdb.cluster-cw9pdiryciie.eu-west-3.rds.amazonaws.com -u admin -pdbpassword11
+
+Note: the second option here is for aurora mysql
+
 
 mysql> show schemas;
 mysql> create database usermgmt;
