@@ -70,7 +70,7 @@ eksctl create iamserviceaccount \
 eksctl create iamserviceaccount \
     --name external-dns \
     --namespace default \
-    --cluster eksdemo1 \
+    --cluster eksdemo3 \
     --attach-policy-arn arn:aws:iam::929252397181:policy/AllowExternalDNSUpdates \
     --approve \
     --override-existing-serviceaccounts
